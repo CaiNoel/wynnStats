@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Wynn > Guilds </title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <style>
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        border-width: 0px;
+}
+img {
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+	height:auto;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+
+
+        </div>
+<center>
+<a href="/home">Home&nbsp;&nbsp;</a>
+<a href="/wynn">&nbsp;&nbsp;Wynncraft</a>
+
+  </nav>
+        <div class="container">
+        <img class ="hi" src="/static/wynnlogo.png" width="600" height="1000">
+
+    <div class="container">
+        <div class="header">
+
+
+        </div>
+
+    <div style="text-align:center">
+              {% for item in itemStats %}
+              {% if item["material"] == "126:0"%}
+                <img class ="hi" src="/static/genericBow1.png" width="100" height="1000">
+                {%endif%}
+              {% if item["material"] == "126:1"%}
+                <img class ="hi" src="/static/genericBow2.png" width="100" height="1000">
+                {%endif%}
+                {% if item["material"] == "126:2"%}
+                  <img class ="hi" src="/static/genericBow3.png" width="100" height="1000">
+                  {%endif%}
+                  {% if item["material"] == "136"%}
+                    <img class ="hi" src="/static/earthBow1.png" width="100" height="1000">
+                    {%endif%}
+                  {% if item["material"] == "163:0"%}
+                      <img class ="hi" src="/static/earthBow2.png" width="100" height="1000">
+                    {%endif%}
+        {% if item["material"] == "164:0"%}
+        <img class ="hi" src="/static/earthBow3.png" width="100" height="1000">
+          {%endif%}                      {% if item["material"] == "109"%}
+          <img class ="hi" src="/static/thunderBow1.png" width="100" height="1000">
+            {%endif%}
+                {% if item["material"] == "139:0"%}
+                    <img class ="hi" src="/static/thunderBow2.png" width="100" height="1000">
+                    {%endif%}
+                    {% if item["material"] == "139:1"%}
+                      <img class ="hi" src="/static/thunderBow3.png" width="100" height="1000">
+                {%endif%}
+      
+                        {% if item["material"] == "22:0"%}
+                          <img class ="hi" src="/static/waterBow1.png" width="100" height="1000">
+                          {%endif%}
+                          {% if item["material"] == "17:1"%}
+                            <img class ="hi" src="/static/waterBow2.png" width="100" height="1000">
+                            {%endif%}
+                            {% if item["material"] == "17:2"%}
+                              <img class ="hi" src="/static/waterBow3.png" width="100" height="1000">
+                              {%endif%}
+                            {% if item["type"] == "Bow" %}
+                            {% if item["tier"] == "Normal" %}
+                                <img class ="hi" src="/static/defaultBow1.png" width="100" height="1000">
+                                {%endif%}
+                                {%endif%}
+
+                                {% if item["name"] == "Wybel Fluff Bow" %}
+                                    <img class ="hi" src="/static/defaultBow1.png" width="100" height="1000">
+                                    {%endif%}
+
+                                {% if item["material"] == "7:0"%}
+                                  <img class ="hi" src="/static/defaultBow2.png" width="100" height="1000">
+                                  {%endif%}
+                                  {% if item["material"] == "182:0"%}
+                                    <img class ="hi" src="/static/airBow1.png" width="100" height="1000">
+                                    {%endif%}
+                                    {% if item["material"] == "35:7"%}
+                                      <img class ="hi" src="/static/airBow2.png" width="100" height="1000">
+                                      {%endif%}
+                                      {% if item["material"] == "35:8"%}
+                                        <img class ="hi" src="/static/airBow3.png" width="100" height="1000">
+                                        {%endif%}
+
+
+
+
+  {% if item["material"] == "159:6"%}
+  <img class ="hi" src="/static/fireBow1.png" width="100" height="1000">
+{%endif%}
+{% if item["material"] == "159:7"%}
+<img class ="hi" src="/static/fireBow2.png" width="100" height="1000">
+{%endif%}
+{% if item["material"] == "159:8"%}
+<img class ="hi" src="/static/fireBow1.png" width="100" height="1000">
+{%endif%}
+                        <!-- DETERMINES NAME DISPLAY -->
+                          {% if item["category"] == "accessory" %}
+                            {% if item["tier"] == "Unique" %}
+                              <h3 style="color:gold;"> {{item["name"]}} [{{item["tier"]}} {{item["accessoryType"]}}]</h3>
+                              {% endif %}
+                            {% if item["tier"] == "Rare" %}
+                              <h3 style="color:magenta;"> {{item["name"]}} [{{item["tier"]}} {{item["accessoryType"]}}]</h3>
+                              {% endif %}
+                              {% if item["tier"] == "Legendary" %}
+                                <h3 style="color:cyan;"> {{item["name"]}} [{{item["tier"]}} {{item["accessoryType"]}}]</h3>
+                              {% endif %}
+                              {% if item["tier"] == "Set" %}
+                                <h3 style="color:limegreen;"> {{item["name"]}} [{{item["tier"]}} {{item["accessoryType"]}}]</h3>
+                                {% endif %}
+                              {% endif %}
+                              {% if item["category"] != "accessory" %}
+                                {% if item["tier"] == "Normal" %}
+                                  <h3 style="color:LightSlateGray;"> {{item["name"]}} [{{item["tier"]}} {{item["type"]}}]</h3>
+                                {%endif%}
+                                {% if item["tier"] == "Unique" %}
+                                  <h3 style="color:gold;"> {{item["name"]}} [{{item["tier"]}} {{item["type"]}}]</h3>
+                                {% endif %}
+                                {% if item["tier"] == "Rare" %}
+                                  <h3 style="color:magenta;">{{item["name"]}} [{{item["tier"]}} {{item["type"]}}]</h3>
+                                {% endif %}
+                                {% if item["tier"] == "Legendary" %}
+                                  <h3 style="color:cyan;">{{item["name"]}} [{{item["tier"]}} {{item["type"]}}]</h3>
+                                {% endif %}
+                                {% if item["tier"] == "Mythic" %}
+                                  <h3 style="color:darkmagenta;">{{item["name"]}} [{{item["tier"]}} {{item["type"]}}]</h3>
+                                {% endif %}
+                                {% if item["tier"] == "Set" %}
+                                  <h3 style="color:limegreen;"> {{item["name"]}} [{{item["tier"]}} {{item["type"]}}]</h3>
+                                {% endif %}
+                              {% endif %}
+
+              <!-- Requirements -->
+              <h4>Requirements: </h4>
+                {% if item["category"] == "weapon" %}
+                  {% if item["type"] == "Bow" %}
+                    <h6>Class Required: Archer</h6>
+                  {% endif%}
+                  {% if item["type"] == "Wand" %}
+                    <h6>Class Required: Mage</h6>
+                  {% endif%}
+                  {% if item["type"] == "Spear" %}
+                    <h6>Class Required: Warrior</h6>
+                  {% endif%}
+                  {% if item["type"] == "Dagger" %}
+                    <h6>Class Required: Assassin</h6>
+                 {% endif%}
+                 {% endif%}
+
+                 {% if item["category"] != "weapon" %}
+                    {% if item["classRequirement"] != None %}
+                      <h6>Class Required: {{item["classRequirement"]}}</h6>
+                      {% endif %}
+                 {% endif %}
+
+                 <h6>Level Minimum: {{item["level"]}}</h6>
+                 {% if item["strength"] != 0 %}
+                 <h6 style = "color:green"> {{ item["strength"] }} Strength Required ✓</h6>
+                 {% endif %}
+                 {% if item["dexterity"] != 0 %}
+                 <h6 style = "color:goldenrod"> {{ item["dexterity"] }} Dexterity Required ✓</h6>
+                 {% endif %}
+                 {% if item["intelligence"] != 0 %}
+                 <h6 style = "color:blue"> {{ item["intelligence"] }} Intelligence Required ✓</h6>
+                 {% endif %}
+                 {% if item["defense"] != 0 %}
+                 <h6 style = "color:firebrick"> {{ item["defense"] }} Defense Required ✓</h6>
+                 {% endif %}
+                 {% if item["agility"] != 0 %}
+                 <h6 style = "color:LightSlateGray"> {{ item["agility"] }} Agility Required ✓</h6>
+                 {% endif %}
+              <!-- Weapon-Specific Statistics -->
+              {% if item["category"] == "weapon" %}
+                <h4>Damage Info:</h4>
+                {% if item["attackSpeed"] == "SUPER_SLOW" %}
+                <h6>Super Slow Attack Speed (1 hit / 2 seconds)</h6>
+                {% endif %}
+                {% if item["attackSpeed"] == "VERY_SLOW" %}
+                <h6>Very Slow Attack Speed (1 hit / 1.4 seconds)</h6>
+                {% endif %}
+                {% if item["attackSpeed"] == "SLOW" %}
+                <h6>Slow Attack Speed (1.3 hits / second)</h6>
+                {% endif %}
+                {% if item["attackSpeed"] == "NORMAL" %}
+                <h6>Normal Attack Speed (2 hits / second)</h6>
+                {% endif %}
+                {% if item["attackSpeed"] == "FAST" %}
+                <h6>Fast Attack Speed (2.6 hits / second)</h6>
+                {% endif %}
+                {% if item["attackSpeed"] == "VERY_FAST" %}
+                <h6>Very Fast Attack Speed (3.3 hits / second)</h6>
+                {% endif %}
+                {% if item["attackSpeed"] == "SUPER_FAST" %}
+                <h6>Super Fast Attack Speed (4 hits / second)</h6>
+                {% endif %}
+                <h6>{{ item["damage"] }} Neutral Damage ✣</h6>
+                {%if item["earthDamage"] != "0-0" %}
+                <h6 style = "color:green">{{ item["earthDamage"] }} Earth Damage ✤</h6>
+                {%endif%}
+                {%if item["thunderDamage"] != "0-0" %}
+                <h6  style = "color:goldenrod">{{ item["thunderDamage"] }} Thunder Damage ✦</h6>
+                {%endif%}
+                {%if item["waterDamage"] != "0-0" %}
+                <h6 style = "color:blue">{{ item["waterDamage"] }} Water Damage ❉</h6>
+                {%endif%}
+                {%if item["fireDamage"] != "0-0" %}
+                <h6 style = "color:firebrick">{{ item["fireDamage"] }} Fire Damage ✹</h6>
+                {%endif%}
+                {%if item["airDamage"] != "0-0" %}
+                <h6  style = "color:LightSlateGray">{{ item["airDamage"] }} Air Damage ❋</h6>
+                {%endif%}
+
+                {% endif %}
+              <!-- Armour-Specific Statistics -->
+              {% if item["category"] != "weapon" %}
+                <h4>Defense Info: </h4>
+                {% if item["health"] > 0 %}
+                  <h6 style = "color:red">+{{ item["health"] }} ♥ Health</h6>
+                {%endif%}
+                {% if item["health"] == 0 %}
+                  <h6 style = "color:red"> {{ item["health"] }} ♥ Health</h6>
+                {%endif%}
+                {% if item["health"] < 0 %}
+                  <h6 style = "color:red"> {{ item["health"] }} ♥ Health</h6>
+                {%endif%}
+                {% if item["earthDefense"] > 0 %}
+                  <h6 style = "color:green">+{{ item["earthDefense"] }} ✤ Earth Defense</h6>
+                {%endif%}
+                {% if item["earthDefense"] < 0 %}
+                  <h6 style = "color:green">{{ item["earthDefense"] }} ✤ Earth Defense</h6>
+                {%endif%}
+                {% if item["thunderDefense"] > 0 %}
+                  <h6 style = "color:goldenrod">+{{ item["thunderDefense"] }} ✦ Thunder Defense</h6>
+                {%endif%}
+                {% if item["thunderDefense"] < 0 %}
+                  <h6 style = "color:goldenrod">{{ item["thunderDefense"] }} ✦ Thunder Defense</h6>
+                {%endif%}
+                {% if item["waterDefense"] > 0 %}
+                  <h6 style = "color:blue">+{{ item["waterDefense"] }} ❉ Water Defense</h6>
+                {%endif%}
+                {% if item["waterDefense"] < 0 %}
+                  <h6 style = "color:blue">{{ item["waterDefense"] }} ❉ Water Defense</h6>
+                {%endif%}
+                {% if item["fireDefense"] > 0 %}
+                  <h6 style = "color:firebrick">+{{ item["fireDefense"] }} ✹ Fire Defense</h6>
+                {%endif%}
+                {% if item["fireDefense"] < 0 %}
+                  <h6 style = "color:firebrick">{{ item["fireDefense"] }} ✹ Fire Defense</h6>
+                {%endif%}
+                {% if item["airDefense"] > 0 %}
+                  <h6 style = "color:LightSlateGray">+{{ item["airDefense"] }} ❋ Air Defense</h6>
+                {%endif%}
+                {% endif %}
+                {% if item["tier"] == "Normal" %}
+                <h6>This item has no identifications.</h6>
+                {% endif %}
+                {% if item["tier"] != "Normal" %}
+                <h4>Identifications:</h4>
+                  {% if item["healthRegen"] != 0 %}
+                    {% if item["healthRegen"] > 0 %}
+                    <h6 style = "color:lime">{{(item["healthRegen"] * 0.3) | round | int}}% Health Regeneration {{(item["healthRegen"] * 1.3) | round | int}}%</h6>
+                    {% endif %}
+                    {% if item["healthRegen"] < 0 %}
+                    <h6 style = "color:red">{{(item["healthRegen"] * 1.3) | round | int}}% Health Regeneration {{(item["healthRegen"] * 0.7) | round | int}}%</h6>
+                    {% endif %}
+                  {% endif %}
+                    {% if item["manaRegen"] == 1 %}
+                    <h6 style = "color:lime">1/4s Mana Regeneration 1/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == 2 %}
+                    <h6 style = "color:lime">1/4s Mana Regeneration 3/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == 3 %}
+                    <h6 style = "color:lime">1/4s Mana Regeneration 4/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == 4 %}
+                    <h6 style = "color:lime">1/4s Mana Regeneration 5/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == 5 %}
+                    <h6 style = "color:lime">2/4s Mana Regeneration 7/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -1 %}
+                    <h6 style = "color:red">-1/4s Mana Regeneration -1/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -2 %}
+                    <h6 style = "color:red">-3/4s Mana Regeneration -1/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -3 %}
+                    <h6 style = "color:red">-4/4s Mana Regeneration -2/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -4 %}
+                    <h6 style = "color:red">-5/4s Mana Regeneration -3/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -5 %}
+                    <h6 style = "color:red">-6/4s Mana Regeneration -3/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -6 %}
+                    <h6 style = "color:red">-8/4s Mana Regeneration -4/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -7 %}
+                    <h6 style = "color:red">-9/4s Mana Regeneration -5/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -9 %}
+                    <h6 style = "color:red">-12/4s Mana Regeneration -6/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -12%}
+                    <h6 style = "color:red">-16/4s Mana Regeneration -8/4s</h6>
+                    {% endif %}
+                    {% if item["manaRegen"] == -66 %}
+                    <h6 style = "color:red">-86/4s Mana Regeneration -46/4s</h6>
+                    {% endif %}
+                    {% if item["spellDamage"] != 0 %}
+                      {% if item["spellDamage"] > 0 %}
+                      <h6 style = "color:lime">{{(item["spellDamage"] * 0.3) | round | int}}% Spell Damage {{(item["spellDamage"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["spellDamage"] < 0 %}
+                      <h6 style = "color:red">{{(item["spellDamage"] * 1.3) | round | int}}% Spell Damage {{(item["spellDamage"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["damageBonus"] != 0 %}
+                      {% if item["damageBonus"] > 0 %}
+                      <h6 style = "color:lime">{{(item["damageBonus"] * 0.3) | round | int}}% Melee Damage {{(item["damageBonus"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["damageBonus"] < 0 %}
+                      <h6 style = "color:red">{{(item["damageBonus"] * 1.3) | round | int}}% Melee Damage {{(item["damageBonus"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["lifeSteal"] != 0 %}
+                      {% if item["lifeSteal"] > 0 %}
+                      <h6 style = "color:lime">{{(item["lifeSteal"] * 0.3) | round | int}}/4s Life Steal {{(item["lifeSteal"] * 1.3) | round | int}}/4s</h6>
+                      {% endif %}
+                      {% if item["lifeSteal"] < 0 %}
+                      <h6 style = "color:red">{{(item["lifeSteal"] * 1.3) | round | int}}/4s Life Steal {{(item["lifeSteal"] * 0.7) | round | int}}/4s</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["manaSteal"] == 1 %}
+                    <h6 style = "color:lime">1/4s Mana Steal 1/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 2 %}
+                    <h6 style = "color:lime">1/4s Mana Steal 3/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 3 %}
+                    <h6 style = "color:lime">1/4s Mana Steal 4/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 4 %}
+                    <h6 style = "color:lime">1/4s Mana Steal 5/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 5 %}
+                    <h6 style = "color:lime">2/4s Mana Steal 7/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 6 %}
+                    <h6 style = "color:lime">2/4s Mana Steal 8/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 8 %}
+                    <h6 style = "color:lime">2/4s Mana Steal 10/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == 22 %}
+                    <h6 style = "color:lime">7/4s Mana Steal 29/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -1 %}
+                    <h6 style = "color:red">-1/4s Mana Steal -1/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -2 %}
+                    <h6 style = "color:red">-3/4s Mana Steal -1/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -3 %}
+                    <h6 style = "color:red">-4/4s Mana Steal -2/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -4 %}
+                    <h6 style = "color:red">-5/4s Mana Steal -3/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -5 %}
+                    <h6 style = "color:red">-6/4s Mana Steal -3/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -6 %}
+                    <h6 style = "color:red">-8/4s Mana Steal -4/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -7 %}
+                    <h6 style = "color:red">-9/4s Mana Steal -5/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -9 %}
+                    <h6 style = "color:red">-12/4s Mana Steal -6/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -12%}
+                    <h6 style = "color:red">-16/4s Mana Steal -8/4s</h6>
+                    {% endif %}
+                    {% if item["manaSteal"] == -40 %}
+                    <h6 style = "color:red">-52/4s Mana Steal -28/4s</h6>
+                    {% endif %}
+                    {% if item["xpBonus"] != 0 %}
+                      {% if item["xpBonus"] > 0 %}
+                      <h6 style = "color:lime">{{(item["xpBonus"] * 0.3) | round | int}}% XP Bonus {{(item["xpBonus"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["xpBonus"] < 0 %}
+                      <h6 style = "color:red">{{(item["xpBonus"] * 1.3) | round | int}}% XP Bonus {{(item["xpBonus"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["lootBonus"] != 0 %}
+                      {% if item["lootBonus"] > 0 %}
+                      <h6 style = "color:lime">{{(item["lootBonus"] * 0.3) | round | int}}% Loot Bonus {{(item["lootBonus"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["lootBonus"] < 0 %}
+                      <h6 style = "color:red">{{(item["lootBonus"] * 1.3) | round | int}}% Loot Bonus {{(item["lootBonus"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["reflection"] != 0 %}
+                      {% if item["reflection"] > 0 %}
+                      <h6 style = "color:lime">{{(item["reflection"] * 0.3) | round | int}}% Reflection {{(item["reflection"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["reflection"] < 0 %}
+                      <h6 style = "color:red">{{(item["reflection"] * 1.3) | round | int}}% Reflection {{(item["reflection"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["strengthPoints"] != 0 %}
+                      {% if item["strengthPoints"] > 0 %}
+                      <h6 style = "color:lime">{{(item["strengthPoints"] * 0.3) | round | int}} Strength {{(item["strengthPoints"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["strengthPoints"] < 0 %}
+                      <h6 style = "color:red">{{(item["strengthPoints"] * 1.3) | round | int}} Strength {{(item["strengthPoints"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["dexterityPoints"] != 0 %}
+                      {% if item["dexterityPoints"] > 0 %}
+                      <h6 style = "color:lime">{{(item["dexterityPoints"] * 0.3) | round | int}} Dexterity {{(item["dexterityPoints"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["dexterityPoints"] < 0 %}
+                      <h6 style = "color:red">{{(item["dexterityPoints"] * 1.3) | round | int}} Dexterity {{(item["dexterityPoints"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["intelligencePoints"] != 0 %}
+                      {% if item["intelligencePoints"] > 0 %}
+                      <h6 style = "color:lime">{{(item["intelligencePoints"] * 0.3) | round | int}} Intelligence {{(item["intelligencePoints"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["intelligencePoints"] < 0 %}
+                      <h6 style = "color:red">{{(item["intelligencePoints"] * 1.3) | round | int}} Intelligence {{(item["intelligencePoints"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["defensePoints"] != 0 %}
+                      {% if item["defensePoints"] > 0 %}
+                      <h6 style = "color:lime">{{(item["defensePoints"] * 0.3) | round | int}} Defense {{(item["defensePoints"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["defensePoints"] < 0 %}
+                      <h6 style = "color:red">{{(item["defensePoints"] * 1.3) | round | int}} Defense {{(item["defensePoints"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["agilityPoints"] != 0 %}
+                      {% if item["agilityPoints"] > 0 %}
+                      <h6 style = "color:lime">{{(item["agilityPoints"] * 0.3) | round | int}} Agility {{(item["agilityPoints"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["agilityPoints"] < 0 %}
+                      <h6 style = "color:red">{{(item["agilityPoints"] * 1.3) | round | int}} Agility {{(item["agilityPoints"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["thorns"] != 0 %}
+                      {% if item["thorns"] > 0 %}
+                      <h6 style = "color:lime">{{(item["thorns"] * 0.3) | round | int}}% Thorns {{(item["thorns"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["thorns"] < 0 %}
+                      <h6 style = "color:red">{{(item["thorns"] * 1.3) | round | int}}% Thorns {{(item["thorns"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["exploding"] != 0 %}
+                      {% if item["exploding"] > 0 %}
+                      <h6 style = "color:lime">{{(item["exploding"] * 0.3) | round | int}}% Exploding {{(item["exploding"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["exploding"] < 0 %}
+                      <h6 style = "color:red">{{(item["exploding"] * 1.3) | round | int}}% Exploding {{(item["exploding"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["speed"] != 0 %}
+                      {% if item["speed"] > 0 %}
+                      <h6 style = "color:lime">{{(item["speed"] * 0.3) | round | int}}% Walk Speed {{(item["speed"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["speed"] < 0 %}
+                      <h6 style = "color:red">{{(item["speed"] * 1.3) | round | int}}% Walk Speed {{(item["speed"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["attackSpeedBonus"] != 0 %}
+                      {% if item["attackSpeedBonus"] > 0 %}
+                      <h6 style = "color:lime">+{{(item["attackSpeedBonus"] * 0.3) | round | int}} tier  Attack Speed +{{(item["attackSpeedBonus"] * 1.3) | round | int}} tier</h6>
+                      {% endif %}
+                      {% if item["attackSpeedBonus"] < 0 %}
+                      <h6 style = "color:red">{{(item["attackSpeedBonus"] * 1.3) | round | int}} tier Attack Speed {{(item["attackSpeedBonus"] * 0.7) | round | int}} tier</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["poison"] != 0 %}
+                      {% if item["poison"] > 0 %}
+                      <h6 style = "color:lime">{{(item["poison"] * 0.3) | round | int}}/3sPoison{{(item["poison"] * 1.3) | round | int}}/3s</h6>
+                      {% endif %}
+                      {% if item["poison"] < 0 %}
+                      <h6 style = "color:red">{{(item["poison"] * 1.3) | round | int}}/3s Poison {{(item["poison"] * 0.7) | round | int}}/3s</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["healthBonus"] != 0 %}
+                      {% if item["healthBonus"] > 0 %}
+                      <h6 style = "color:lime">{{(item["healthBonus"] * 0.3) | round | int}}Extra Health{{(item["healthBonus"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["healthBonus"] < 0 %}
+                      <h6 style = "color:red">{{(item["healthBonus"] * 1.3) | round | int}}Extra Health {{(item["healthBonus"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["soulPoints"] != 0 %}
+                      {% if item["soulPoints"] > 0 %}
+                      <h6 style = "color:lime">{{(item["soulPoints"] * 0.3) | round | int}}% Soul Point Regen {{(item["soulPoints"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["soulPoints"] < 0 %}
+                      <h6 style = "color:red">{{(item["soulPoints"] * 1.3) | round | int}}% Soul Point Regen {{(item["soulPoints"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["emeraldStealing"] != 0 %}
+                      {% if item["emeraldStealing"] > 0 %}
+                      <h6 style = "color:lime">{{(item["emeraldStealing"] * 0.3) | round | int}}% Stealing {{(item["emeraldStealing"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["emeraldStealing"] < 0 %}
+                      <h6 style = "color:red">{{(item["emeraldStealing"] * 1.3) | round | int}}% Stealing {{(item["emeraldStealing"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["healthRegenRaw"] in data %}
+                    {% if item["healthRegenRaw"] != 0 %}
+                      {% if item["healthRegenRaw"] > 0 %}
+                      <h6 style = "color:lime">{{(item["healthRegenRaw"] * 0.3) | round | int}} Raw Health Regen {{(item["healthRegenRaw"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["healthRegenRaw"] < 0 %}
+                      <h6 style = "color:red">{{(item["healthRegenRaw"] * 1.3) | round | int}} Raw Health Regen {{(item["healthRegenRaw"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {%endif%}
+                    {% if item["spellDamageRaw"] in data %}
+                    {% if item["spellDamageRaw"] != 0 %}
+                      {% if item["spellDamageRaw"] > 0 %}
+                      <h6 style = "color:lime">{{(item["spellDamageRaw"] * 0.3) | round | int}} Raw Spell Damage {{(item["spellDamageRaw"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["spellDamageRaw"] < 0 %}
+                      <h6 style = "color:red">{{(item["spellDamageRaw"] * 1.3) | round | int}} Raw Spell Damage {{(item["spellDamageRaw"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                      {%endif%}
+                      {% if item["damageBonusRaw"] in data %}
+                    {% if item["damageBonusRaw"] != 0 %}
+                      {% if item["damageBonusRaw"] > 0 %}
+                      <h6 style = "color:lime">{{(item["damageBonusRaw"] * 0.3) | round | int}} Raw Melee Damage {{(item["damageBonusRaw"] * 1.3) | round | int}}</h6>
+                      {% endif %}
+                      {% if item["damageBonusRaw"] < 0 %}
+                      <h6 style = "color:red">{{(item["damageBonusRaw"] * 1.3) | round | int}} Raw Melee Damage {{(item["damageBonusRaw"] * 0.7) | round | int}}</h6>
+                      {% endif %}
+                    {% endif %}
+                    {%endif%}
+                    {% if item["bonusFireDamage"] in data %}
+                    {% if item["bonusFireDamage"] != 0 %}
+                      {% if item["bonusFireDamage"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusFireDamage"] * 0.3) | round | int}}% Fire Damage {{(item["bonusFireDamage"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusFireDamage"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusFireDamage"] * 1.3) | round | int}}% Fire Damage {{(item["bonusFireDamage"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% if item["bonusWaterDamage"] != 0 %}
+                      {% if item["bonusWaterDamage"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusWaterDamage"] * 0.3) | round | int}}% Water Damage {{(item["bonusWaterDamage"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusWaterDamage"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusWaterDamage"] * 1.3) | round | int}}% Water Damage {{(item["bonusWaterDamage"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusAirDamage"] != 0 %}
+                      {% if item["bonusAirDamage"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusAirDamage"] * 0.3) | round | int}}% Air Damage {{(item["bonusAirDamage"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusAirDamage"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusAirDamage"] * 1.3) | round | int}}% Air Damage {{(item["bonusAirDamage"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusThunderDamage"] != 0 %}
+                      {% if item["bonusThunderDamage"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusThunderDamage"] * 0.3) | round | int}}% Thunder Damage {{(item["bonusThunderDamage"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusThunderDamage"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusThunderDamage"] * 1.3) | round | int}}% Thunder Damage {{(item["bonusThunderDamage"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusEarthDamage"] != 0 %}
+                      {% if item["bonusEarthDamage"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusEarthDamage"] * 0.3) | round | int}}% Earth Damage {{(item["bonusEarthDamage"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusEarthDamage"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusEarthDamage"] * 1.3) | round | int}}% Earth Damage {{(item["bonusEarthDamage"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusFireDefense"] != 0 %}
+                      {% if item["bonusFireDefense"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusFireDefense"] * 0.3) | round | int}}% Fire Defense {{(item["bonusFireDefense"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusFireDefense"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusFireDefense"] * 1.3) | round | int}}% Fire Defense {{(item["bonusFireDefense"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusWaterDefense"] != 0 %}
+                      {% if item["bonusWaterDefense"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusWaterDefense"] * 0.3) | round | int}}% Water Defense {{(item["bonusWaterDefense"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusWaterDefense"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusWaterDefense"] * 1.3) | round | int}}% Water Defense {{(item["bonusWaterDefense"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusAirDefense"] != 0 %}
+                      {% if item["bonusAirDefense"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusAirDefense"] * 0.3) | round | int}}% Air Defense {{(item["bonusAirDefense"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusAirDefense"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusAirDefense"] * 1.3) | round | int}}% Air Defense {{(item["bonusAirDefense"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusThunderDefense"] != 0 %}
+                      {% if item["bonusThunderDefense"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusThunderDefense"] * 0.3) | round | int}}% Thunder Defense {{(item["bonusThunderDefense"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusThunderDefense"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusThunderDefense"] * 1.3) | round | int}}% Thunder Defense {{(item["bonusThunderDefense"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["bonusEarthDefense"] != 0 %}
+                      {% if item["bonusEarthDefense"] > 0 %}
+                      <h6 style = "color:lime">{{(item["bonusEarthDefense"] * 0.3) | round | int}}% Earth Defense {{(item["bonusEarthDefense"] * 1.3) | round | int}}%</h6>
+                      {% endif %}
+                      {% if item["bonusEarthDefense"] < 0 %}
+                      <h6 style = "color:red">{{(item["bonusEarthDefense"] * 1.3) | round | int}}% Earth Defense {{(item["bonusEarthDefense"] * 0.7) | round | int}}%</h6>
+                      {% endif %}
+                    {% endif %}
+                    {% if item["sockets"] != 0 %}
+                      {% if item["sockets"] > 0 %}
+                      <h6 style = "color:LightSlateGray">[0/{{item["sockets"]}} Slots]</h6>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                  <h6>  </h6>
+              {% endfor %}
+            </div>
+        </div>
+
+        <footer class="footer">
+            <h1></h1>
+            <h6>Wynnformation is an unofficial community-made tool not endorsed by Wynncraft.</h6>
+            <h6>&copy; 2018 Cai Noel</h6>
+        </footer>
+
+    </div>
+</body>
+
+</html>

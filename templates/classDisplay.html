@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Wynn > Players </title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style type="text/css" media="screen">
+
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+        z-index: 1;
+    }
+
+    /* Show the tooltip text when you mouse over the tooltip container */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+
+
+         div#banner {
+           position: absolute;
+           top: 0;
+           left: 0;
+           background-color: #DDEEEE;
+           width: 100%;
+         }
+         div#banner-content {
+        text-align: center;
+        border: 3px solid green;
+    }
+         div#main-content {
+           padding-top: 30px;
+        }
+        img {
+
+        	height:auto;
+        }
+        </style>
+    </head>
+
+
+    </style>
+</head>
+
+
+
+<body>
+  {% if playerStats["current_server"] != "null" %}
+  <div id="banner">
+      <div id="banner-content">
+      🔵 This player is online right now!  Catch them on {{playerStats["current_server"]}} 🔵
+      </div>
+    </div>
+    <div id="main-content">
+    {%endif%}
+    <div class="container">
+        <div class="header">
+
+
+
+<center>
+<a href="/home">Home&nbsp;&nbsp;</a>
+<a href="/wynn">&nbsp;&nbsp;Wynncraft</a>
+
+  </nav>
+        <div class="container">
+        <img class ="hi" src="/static/wynnlogo.png" width="600" height="1000">
+    <div class="container">
+        <div class="header">
+
+        </div>
+        {%if playerStats["rank"] == "Administrator"%}
+        <img src="https://visage.surgeplay.com/bust/512/{{playerStats["uuid"]}}.png" width="150" height="100" style="border: #800000 6px solid;">
+        <br>
+              <h3 style = "color: #800000;"> {{playerStats["username"]}} </h3>
+              <h4> Wynncraft Administrator </h4>
+        {%endif%}
+        {%if playerStats["rank"] == "Game Master" or playerStats["rank"] == "Builder" or playerStats["rank"] == "CMD" or playerStats["rank"] == "Hybrid"%}
+              <img src="https://visage.surgeplay.com/bust/512/{{playerStats["uuid"]}}.png" width="150" height="100" style="border: #6666ff 6px solid;">
+        <br>
+              <h3 style = "color: #6666ff;"> {{playerStats["username"]}} </h3>
+              <h4 style = "color: #6666ff;"> Wynncraft Content Team </h3>
+          {%endif%}
+          {%if playerStats["rank"] == "Player"%}
+          {%if playerStats["tag"] == "VIP"%}
+                <img src="https://visage.surgeplay.com/bust/512/{{playerStats["uuid"]}}.png" width="150" height="100" style="border: #228B22 6px solid;">
+          <br>
+                <h3>{{playerStats["username"]}}</h3>
+                <h4 style = "color: #228B22;"> VIP </h3>
+            {%endif%}
+            {%if playerStats["tag"] == "VIP+"%}
+                  <img src="https://visage.surgeplay.com/bust/512/{{playerStats["uuid"]}}.png" width="150" height="100" style="border: #0000CD 6px solid;">
+            <br>
+                  <h3>{{playerStats["username"]}}</h3>
+                  <h4 style = "color: #0000CD;"> VIP+ </h3>
+              {%endif%}
+              {%if playerStats["tag"] == "HERO"%}
+                    <img src="https://visage.surgeplay.com/bust/512/{{playerStats["uuid"]}}.png" width="150" height="100" style="border: #4B0082 6px solid;">
+              <br>
+                    <h3>{{playerStats["username"]}}</h3>
+                    <h4 style = "color: #4B0082;"> HERO </h3>
+                {%endif%}
+            {%endif%}
+
+          </div>
+          </div>
+{%if classInformation["level"] != 101%}
+<h3>{{classInformation["level"]}}<progress value={{classInformation["xp"]}} max="100"></progress>{{classInformation["level"]+1}}</h3><h6>{{classInformation["xp"]}}% XP Earned
+{%endif%}
+{%if classInformation["level"] == 101%}
+<h3>{{classInformation["level"]}}<progress value={{classInformation["xp"]}} max="100"></progress>101</h3><h6>{{classInformation["xp"]}}% Extra XP Earned
+{%endif%}
+<div style="height:300px;width:500px;overflow:auto;border:8px solid ;padding:2%">
+  <h3> Quests
+<h3>0<progress value={{questsCompleted}} max="100"></progress>121</h3><h6>
+{%for elem in classInformation["quests"]%}
+<h6>  {{elem}}
+
+{%endfor%}
+<br/>
+          <br/>
+
+</html>

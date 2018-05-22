@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Wynn > Guilds </title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <style>
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        border-width: 10px;
+}
+img {
+
+	height:auto;
+}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+
+
+        </div>
+<center>
+<a href="/home">Home&nbsp;&nbsp;</a>
+<a href="/wynn">&nbsp;&nbsp;Wynncraft</a>
+
+  </nav>
+        <div class="container">
+        <img class ="hi" src="/static/wynnlogo.png" width="600" height="1000">
+          <div class="card-group">
+  <div class="card" style="width: 10rem;">
+    <img class="hi" src='/static/logo.png' width="190" height="0", alt="Card image cap">
+    <div class="card-block">
+      <h1 class="card-title">Guild Lookup</h1>
+      <p class="card-text">Get up-to-date information about every guild in the game, including leveling progress, members, and territories!</p>
+    <a href="/wynn/guildSearch" class="btn btn-primary">Guild Lookup</a>
+    </div>
+  </div>
+  <div class="card" style="width: 10rem;">
+    <img class="hi" src="/static/Staff.png"  width="190" height="0", alt="Card image cap">
+    <div class="card-block">
+      <h1 class="card-title">Guild Leaderboard</h1>
+      <p class="card-text">View Wynncraft's current top 100 guild listings, based on territorial control and leveling.</p>
+    <a href="/wynn/guildLeaderboard" class="btn btn-primary">Guild Leaderboard</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+      </div>
+</center>
+</div>
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+    </div>
+</body>
+
+</html>
