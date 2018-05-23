@@ -4,6 +4,7 @@ import json
 import math
 import urllib
 import ssl
+import os
 from itertools import groupby
 app = Flask(__name__, static_url_path = "/static", static_folder = "static")
 @app.route('/')
