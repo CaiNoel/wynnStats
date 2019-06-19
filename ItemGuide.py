@@ -130,7 +130,7 @@ def playerDisplay(playerName):
     if playerName != None:
         playerName = playerName.replace(' ', '%20')
         context = ssl._create_unverified_context()
-        response = urllib.request.urlopen('https://api.wynncraft.com/public_api.php?action=playerStats&command=' + playerName, context=context)
+        response = urllib.request.urlopen('https://api.wynncraft.com/v2/player/' + playerName + '/stats', context=context)
         str_response = response.read().decode('utf-8')
         playerStats = (json.loads(str_response))
         playerClasses = list(playerStats["classes"])
@@ -144,7 +144,7 @@ def classDisplay(playerName, playerClass):
     if playerName != None and playerClass != None:
         playerName = playerName.replace(' ', '%20')
         context = ssl._create_unverified_context()
-        response = urllib.request.urlopen('https://api.wynncraft.com/public_api.php?action=playerStats&command=' + playerName, context=context)
+        response = urllib.request.urlopen('https://api.wynncraft.com/v2/player/' + playerName + '/stats', context=context)
         str_response = response.read().decode('utf-8')
         playerStats = (json.loads(str_response))
         classInformation = playerStats["classes"][playerClass]
